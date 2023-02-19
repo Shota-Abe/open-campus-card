@@ -9,7 +9,7 @@ class ShootingStars extends StatefulWidget {
 class _ShootingStarsState extends State<ShootingStars>
     with TickerProviderStateMixin {
   late AnimationController _controller;
-  final List<Star> stars = List.generate(50, (_) => Star());
+  final List<Star> stars = List.generate(30, (_) => Star());
 
   @override
   void initState() {
@@ -59,7 +59,7 @@ class ShootingStarsPainter extends CustomPainter {
       ..strokeWidth = 2;
 
     for (final star in stars) {
-      final length = 80;
+      final length = 100;
       final startPos = Offset(star.x + length, star.y);
       final endPos = Offset(star.x, star.y + length);
       canvas.drawLine(startPos, endPos, paint);
