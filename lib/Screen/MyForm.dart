@@ -1,5 +1,11 @@
+import 'dart:html';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_url_param/Repository/NameRepository.dart';
 import 'dart:js';
+
+import 'MyHomePage.dart';
 
 class MyForm extends StatefulWidget {
   final String? myurl;
@@ -24,17 +30,9 @@ class _MyFormState extends State<MyForm> {
     super.dispose();
   }
 
-  Future<void> _launchUrl(String name) async {
-    final String url = '${widget.myurl}?id=$name';
-    context.callMethod('open', [url]);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('My Form'),
-      // ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -76,7 +74,7 @@ class _MyFormState extends State<MyForm> {
           onPressed: name == ""
               ? null
               : () {
-                  _launchUrl(name);
+                  _nextButtonTapped(context);
                 },
           child: Icon(
             Icons.arrow_forward_rounded,
@@ -88,5 +86,37 @@ class _MyFormState extends State<MyForm> {
         ),
       ),
     );
+  }
+
+  void _nextButtonTapped(BuildContext context) {
+    NameRepository.saveName(name);
+
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //         builder: (context) => MyHomePage(
+    //               widget.myurl,
+    //               name,
+    //             )),
+    //   );
+    // });
+
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //       builder: (context) => MyHomePage(
+    //             widget.myurl,
+    //             name,
+    //           )),
+    // );
+
+    window.close();
+    _launchUrl(name);
+  }
+
+  Future<void> _launchUrl(String name) async {
+    final String url = '${widget.myurl}?name=$name';
+    context.callMethod('open', [url]);
   }
 }
