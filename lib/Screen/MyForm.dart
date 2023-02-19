@@ -106,7 +106,12 @@ class _MyFormState extends State<MyForm> {
   }
 
   Future<void> _launchUrl(String name) async {
-    final String url = '${widget.myurl}?name=$name';
+    final myurl = widget.myurl ?? "https://shota-abe.github.io/open-campus-card/";
+    int questionMarkIndex = myurl.indexOf("?");
+    String defaultUrl = questionMarkIndex == -1 ? myurl : myurl.substring(0, questionMarkIndex);
+
+    final String url = '$defaultUrl?name=$name';
+    // final String url = '${widget.myurl}?name=$name';
     window.open(url, '_self');
   }
 }
