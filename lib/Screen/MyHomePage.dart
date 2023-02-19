@@ -46,7 +46,6 @@ class MyHomePage extends StatelessWidget {
                 const Text(
                   "Produced by Re:monium",
                   style: TextStyle(
-                    // fontSize: 13, 
                     fontWeight: FontWeight.bold
                     ),
                 ),
