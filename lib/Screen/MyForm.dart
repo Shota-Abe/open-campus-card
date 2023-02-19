@@ -111,12 +111,11 @@ class _MyFormState extends State<MyForm> {
     //           )),
     // );
 
-    window.close();
     _launchUrl(name);
   }
 
   Future<void> _launchUrl(String name) async {
     final String url = '${widget.myurl}?name=$name';
-    context.callMethod('open', [url]);
+    window.open(url, '_self');
   }
 }

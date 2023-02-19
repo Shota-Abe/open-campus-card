@@ -45,15 +45,18 @@ class MyHomePage extends StatelessWidget {
                 _changeNameButton(context),
                 const Text(
                   "Produced by Re:monium",
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    // fontSize: 13, 
+                    fontWeight: FontWeight.bold
+                    ),
                 ),
-                Text(name == null ? "name is null" : "name  = " + name!,
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
-                SelectableText(
-                    myurl == null ? "URl is null" : "URLパラメータ = " + myurl!,
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
+                // Text(name == null ? "name is null" : "name  = " + name!,
+                //     style: TextStyle(
+                //         color: Colors.white, fontWeight: FontWeight.bold)),
+                // SelectableText(
+                //     myurl == null ? "URl is null" : "URLパラメータ = " + myurl!,
+                //     style: TextStyle(
+                //         color: Colors.white, fontWeight: FontWeight.bold)),
                 const Text(
                   "スクショしてカードを保存",
                   style: TextStyle(
@@ -100,7 +103,7 @@ class MyHomePage extends StatelessWidget {
       child: const Text(
         "←名前を変更",
         style: TextStyle(
-            fontSize: 14,
+            // fontSize: 14,
             decoration: TextDecoration.underline,
             color: Colors.white,
             fontWeight: FontWeight.bold),
@@ -138,11 +141,6 @@ class MyHomePage extends StatelessWidget {
   }
 
   void _changeNameButtonTapped(BuildContext context) {
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => MyForm(myurl)),
-    // );
-
     // Navigator.pop(context);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -167,7 +165,5 @@ class MyHomePage extends StatelessWidget {
         ),
       );
     });
-
-    // window.close();
   }
 }
