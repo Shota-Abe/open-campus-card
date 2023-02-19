@@ -102,15 +102,6 @@ class _MyFormState extends State<MyForm> {
     //   );
     // });
 
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //       builder: (context) => MyHomePage(
-    //             widget.myurl,
-    //             name,
-    //           )),
-    // );
-
     _launchUrl(name);
   }
 
