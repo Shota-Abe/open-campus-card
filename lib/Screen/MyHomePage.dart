@@ -102,7 +102,6 @@ class MyHomePage extends StatelessWidget {
       child: const Text(
         "←名前を変更",
         style: TextStyle(
-            // fontSize: 14,
             decoration: TextDecoration.underline,
             color: Colors.white,
             fontWeight: FontWeight.bold),
